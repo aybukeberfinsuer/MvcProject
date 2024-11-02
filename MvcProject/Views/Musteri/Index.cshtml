@@ -1,0 +1,28 @@
+﻿@using MvcProject.Models.Entity
+@model List<Tbl_Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Müşteri Id  </th>
+        <th> Müşteri Ad  </th>
+        <th> Müşteri  </th>
+       
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MusteriId</td>
+                <td> @item.MusteriAd</td>
+                <td>@item.MusteriSoyad</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
