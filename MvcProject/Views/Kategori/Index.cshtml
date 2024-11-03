@@ -7,21 +7,25 @@
 }
 
 <table class="table table-bordered">
-    <tr >
-        <th> Kategori Id  </th>
-        <th> Kategori Ad  </th>
-    </tr>
+    <tr>
+        <th> Kategori Id </th>
+        <th> Kategori Ad </th>
+        <th> İşlemler </th>
+
+    </tr>S
     <tbody>
-        @foreach(var item in Model)
-            { <tr>
-    <td>
-        @item.KategoriId
-    </td>
-    <td>
-        @item.KategoriAd
-    </td>
-</tr>
-                
-            }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.KategoriId </td>
+                <td> @item.KategoriAd </td>
+                <td>
+
+                    <a href="/Kategori/Sil/@item.KategoriId" class="btn btn-danger">Sil</a>
+                    <a href="/Kategori/KategoriGetir/@item.KategoriId" class="btn btn-success">Guncelle</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<a href="/Kategori/Ekle" class="btn btn-primary"> Ekle</a>

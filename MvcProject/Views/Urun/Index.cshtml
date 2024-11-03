@@ -13,6 +13,7 @@
         <th> Kategori  </th>
         <th> Fiyat  </th>
         <th> Stok  </th>
+        <th> İşlemler  </th>
     </tr>
     <tbody>
         @foreach (var item in Model)
@@ -24,8 +25,14 @@
                 <td> @item.Tbl_Kategoriler.KategoriAd</td>
                 <td>@item.Fiyat</td>
                 <td> @item.Stok</td>
+                <td>
+
+                    <a href="/Urun/Sil/@item.UrunId" class="btn btn-danger">Sil</a>
+                    <a href="/Urun/Guncelle/@item.UrunId" class="btn btn-success">Guncelle</a>
+                </td>
             </tr>
 
         }
     </tbody>
 </table>
+<a href="/Urun/Ekle" class="btn btn-primary"> Ekle</a>

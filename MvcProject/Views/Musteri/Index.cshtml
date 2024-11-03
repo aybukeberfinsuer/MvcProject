@@ -12,7 +12,8 @@
         <th> Müşteri Id  </th>
         <th> Müşteri Ad  </th>
         <th> Müşteri  </th>
-       
+        <th> İşlemler  </th>
+
     </tr>
     <tbody>
         @foreach (var item in Model)
@@ -21,8 +22,14 @@
                 <td>@item.MusteriId</td>
                 <td> @item.MusteriAd</td>
                 <td>@item.MusteriSoyad</td>
+                <td>
+
+                    <a href="/Musteri/Sil/@item.MusteriId" class="btn btn-danger">Sil</a>
+                    <a href="/Musteri/MusteriGetir/@item.MusteriId" class="btn btn-success">Guncelle</a>
+                </td>
             </tr>
 
         }
     </tbody>
 </table>
+<a href="/Musteri/Ekle" class="btn btn-primary"> Ekle</a>
