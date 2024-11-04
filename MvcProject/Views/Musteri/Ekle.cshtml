@@ -1,4 +1,4 @@
-﻿
+﻿@model MvcProject.Models.Entity.Tbl_Musteriler
 @{
     ViewBag.Title = "Ekle";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -8,12 +8,21 @@
 
 <form class="form-group" method="post">
     <div>
-        <label>Müşteri Ad</label>
-        <input type="text" class="form-control" name="MusteriAd" />
+      
+        <div>
+            <label>Müşteri Ad</label>
+            @Html.TextBoxFor(m => m.MusteriAd, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MusteriAd, "", new { @style = "color: red;" })
+        </div>
+     
     </div>
     <div>
-        <label>Müşteri Soyad</label>
-        <input type="text" class="form-control" name="MusteriSoyad" />
+        <div>
+            <label>Müşteri Soyad</label>
+            @Html.TextBoxFor(m => m.MusteriSoyad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MusteriSoyad, "", new { @style = "color: red;" })
+        </div>
+
     </div>
     <div style="margin-top: 15px;">
         <button class="btn btn-info "> Müşteri Ekle</button>

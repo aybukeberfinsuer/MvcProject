@@ -24,7 +24,11 @@ namespace MvcProject.Controllers
 
 		[HttpPost]
         public ActionResult Ekle(Tbl_Kategoriler category1)
-        {           
+        {  
+            if(!ModelState.IsValid)
+            {
+                return View("Ekle");
+            }
             db.Tbl_Kategoriler.Add(category1);
             db.SaveChanges();
             return RedirectToAction("Index");           

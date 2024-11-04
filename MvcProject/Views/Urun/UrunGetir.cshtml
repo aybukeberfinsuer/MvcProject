@@ -1,0 +1,45 @@
+﻿@model MvcProject.Models.Entity.Tbl_Urunler 
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.UrunId)
+        @Html.TextBoxFor(m => m.UrunId, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.UrunAd)
+        @Html.TextBoxFor(m => m.UrunAd, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.Marka)
+        @Html.TextBoxFor(m => m.Marka, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Tbl_Kategoriler.KategoriAd)
+        @Html.DropDownListFor(m=>m.Tbl_Kategoriler.KategoriAd,(List<SelectListItem>)ViewBag.dgr, new {@class="form-control"})
+        @*üstteki satır controller kısmından verileri taşımak için kullanılıyor*@
+        <br />
+
+        @Html.LabelFor(m => m.Fiyat)
+        @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.Stok)
+        @Html.TextBoxFor(m => m.Stok, new { @class = "form-control" })
+        <br />
+
+
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+
+}
+
+
