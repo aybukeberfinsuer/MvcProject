@@ -26,6 +26,10 @@ namespace MvcProject.Controllers
 		[HttpPost]
 		public ActionResult Ekle(Tbl_Musteriler musteri)
 		{
+			if (!ModelState.IsValid)
+			{
+				return View("Ekle");
+			}
 			db.Tbl_Musteriler.Add(musteri);
 			db.SaveChanges();
 			return RedirectToAction("Index");

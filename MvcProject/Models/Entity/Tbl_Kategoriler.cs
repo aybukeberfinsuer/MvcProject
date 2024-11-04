@@ -11,8 +11,9 @@ namespace MvcProject.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Tbl_Kategoriler
+	using System.ComponentModel.DataAnnotations;
+
+	public partial class Tbl_Kategoriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_Kategoriler()
@@ -21,6 +22,9 @@ namespace MvcProject.Models.Entity
         }
     
         public short KategoriId { get; set; }
+
+        [Required(ErrorMessage ="Kategori adýný giriniz.")]
+        [StringLength(50,ErrorMessage ="En fazla 50 karakter girebilirsiniz.")]
         public string KategoriAd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

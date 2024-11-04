@@ -46,5 +46,30 @@ namespace MvcProject.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		public ActionResult UrunGetir(int id)
+		{
+			var urun = db.Tbl_Urunler.Find(id);
+			List<SelectListItem> list = (from i in db.Tbl_Kategoriler.ToList()
+										 select new SelectListItem
+										 {
+											 Text = i.KategoriAd,
+											 Value = i.KategoriId.ToString()
+										 }).ToList();
+			ViewBag.dgr = list;
+			return View("UrunGetir", urun);
+		}
+
+		public ActionResult Guncelle(Tbl_Urunler urunler)
+		{
+			var value = db.Tbl_Urunler.Find(urunler.UrunId);
+			value.UrunAd = urunler.UrunAd;
+			value.Marka = urunler.Marka;
+			var ktg = db.Tbl_Kategoriler.Where(i => i.KategoriId == urunler.Tbl_Kategoriler.KategoriId).FirstOrDefault();
+			value.UrunKategori = ktg.KategoriId;
+			value.Fiyat = urunler.Fiyat;
+			value.Stok = urunler.Stok;
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
