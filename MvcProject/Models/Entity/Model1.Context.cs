@@ -25,7 +25,6 @@ namespace MvcProject.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tbl_Kategoriler> Tbl_Kategoriler { get; set; }
         public virtual DbSet<Tbl_Musteriler> Tbl_Musteriler { get; set; }
         public virtual DbSet<Tbl_Satislar> Tbl_Satislar { get; set; }

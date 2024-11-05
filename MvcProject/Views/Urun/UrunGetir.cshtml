@@ -21,7 +21,7 @@
         @Html.TextBoxFor(m => m.Marka, new { @class = "form-control" })
         <br />
         @Html.LabelFor(m => m.Tbl_Kategoriler.KategoriAd)
-        @Html.DropDownListFor(m=>m.Tbl_Kategoriler.KategoriAd,(List<SelectListItem>)ViewBag.dgr, new {@class="form-control"})
+        @Html.DropDownListFor(m=>m.UrunKategori,(List<SelectListItem>)ViewBag.dgr, new {@class="form-control"})
         @*üstteki satır controller kısmından verileri taşımak için kullanılıyor*@
         <br />
 
