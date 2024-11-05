@@ -23,7 +23,7 @@ namespace MvcProject.Models.Entity
         public int UrunId { get; set; }
         public string UrunAd { get; set; }
         public string Marka { get; set; }
-        public Nullable<short> UrunKategori { get; set; }
+        public int UrunKategori { get; set; }
         public Nullable<decimal> Fiyat { get; set; }
         public Nullable<byte> Stok { get; set; }
     

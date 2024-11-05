@@ -11,10 +11,9 @@ namespace MvcProject.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-
-	public partial class Tbl_Musteriler
-	{
+    
+    public partial class Tbl_Musteriler
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tbl_Musteriler()
         {
@@ -22,12 +21,8 @@ namespace MvcProject.Models.Entity
         }
     
         public int MusteriId { get; set; }
-		[Required(ErrorMessage = "Müþteri adýný giriniz.")]
-		[StringLength(50, ErrorMessage = "En fazla 50 karakter girebilirsiniz.")]
-		public string MusteriAd { get; set; }
-		[Required(ErrorMessage = "Müþteri soyadýný giriniz.")]
-		[StringLength(50, ErrorMessage = "En fazla 50 karakter girebilirsiniz.")]
-		public string MusteriSoyad { get; set; }
+        public string MusteriAd { get; set; }
+        public string MusteriSoyad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Satislar> Tbl_Satislar { get; set; }

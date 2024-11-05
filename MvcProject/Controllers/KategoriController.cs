@@ -1,7 +1,9 @@
 ﻿using MvcProject.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,10 +12,11 @@ namespace MvcProject.Controllers
     public class KategoriController : Controller
     {
         dbMvcProjectEntities db= new dbMvcProjectEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var values= db.Tbl_Kategoriler.ToList();
-            return View(values);
+            //var values= db.Tbl_Kategoriler.ToList();
+            var degerler = db.Tbl_Kategoriler.ToList().ToPagedList(sayfa,4);
+            return View(degerler);
         }
 
         [HttpGet]

@@ -31,7 +31,7 @@ namespace MvcProject.Controllers
 		[HttpPost]
 		public ActionResult Ekle(Tbl_Urunler object_urun)
 		{
-			var ktg = db.Tbl_Kategoriler.Where(i => i.KategoriId.Equals(object_urun.Tbl_Kategoriler.KategoriId)).FirstOrDefault();
+			var ktg = db.Tbl_Kategoriler.Where(i => i.KategoriId == object_urun.Tbl_Kategoriler.KategoriId).FirstOrDefault();
 			object_urun.Tbl_Kategoriler = ktg;
 			db.Tbl_Urunler.Add(object_urun);
 			db.SaveChanges();
@@ -64,8 +64,7 @@ namespace MvcProject.Controllers
 			var value = db.Tbl_Urunler.Find(urunler.UrunId);
 			value.UrunAd = urunler.UrunAd;
 			value.Marka = urunler.Marka;
-			var ktg = db.Tbl_Kategoriler.Where(i => i.KategoriId == urunler.Tbl_Kategoriler.KategoriId).FirstOrDefault();
-			value.UrunKategori = ktg.KategoriId;
+			value.UrunKategori = urunler.UrunKategori;
 			value.Fiyat = urunler.Fiyat;
 			value.Stok = urunler.Stok;
 			db.SaveChanges();
