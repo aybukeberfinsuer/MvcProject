@@ -11,11 +11,17 @@ namespace MvcProject.Controllers
     public class MusteriController : Controller
     {
        dbMvcProjectEntities db = new dbMvcProjectEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var values= db.Tbl_Musteriler.ToList();
-            return View(values);
-        }
+
+			var degerler = from d in db.Tbl_Musteriler select d;
+			
+			if(!string.IsNullOrEmpty(p))
+			{
+				degerler = degerler.Where(m => m.MusteriAd.Contains(p));
+			}
+			return View(degerler.ToList());
+		}
 
 		[HttpGet]
 		public ActionResult Ekle()
